@@ -1,0 +1,6 @@
+<h1>Ro'yhatdan o'tish</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Jo'natish</button>
+    </form>

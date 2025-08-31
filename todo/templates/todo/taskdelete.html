@@ -1,0 +1,7 @@
+<h3>Ishonchingiz komilmi?</h3>
+
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit">O'chirish</button>
+</form>
+<a href="{% url 'taskList' %}"></a>

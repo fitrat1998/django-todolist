@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Topshiriqlar</title>
+</head>
+<body>
+<div style="display: flex; gap: 20px; align-items: center;">
+    <h3>Forma</h3>
+    <h3><a href="{% url 'task_create' %}">Qo'shish</a></h3>
+    <h3><a href="{% url 'user_logout' %}">Chiqish</a></h3>
+
+</div>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Sarlavha</th>
+            <th>Deadlayn</th>
+            <th>Holati</th>
+            <th>Yaratilgan sanasi</th>
+            <th>Tahrirlangan sanasi</th>
+            <th>Amallar</th>
+        </tr>
+    </thead>
+<tbody border="1">
+        {% for task in tasks %}
+            <tr>
+                <td>{{ task.id }}</td>
+                <td>{{ task.title }}</td>
+                <td>{{ task.deadline }}</td>
+                <td>{{ task.status }}</td>
+                <td>{{ task.created_at }}</td>
+                <td>{{ task.updated_at }}</td>
+                <td><a href="{% url 'task_update' task.pk %}">Tahrirlash</a></td>
+                <td><a href="{% url 'task_delete' task.pk %}">O'chirish</a></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>
